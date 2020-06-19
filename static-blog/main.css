@@ -1,0 +1,120 @@
+:root {
+  --primary-color: rgba(0,0,0,0.5);
+  --text-color: #f2f2f2;
+  --head-color: #c2b280
+}
+
+html * {
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+  scroll-behavior: smooth
+}
+
+body {  
+  background-image: linear-gradient(var(--primary-color),var(--primary-color)), url('./img/patrick-tomasso-QMDap1TAu0g-unsplash\ \(1\).jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  padding: 30px;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--head-color);
+}
+
+nav {
+  display: flex;
+  background-color: var(--primary-color);
+  width: 100%;
+}
+
+nav a{
+  color: var(--text-color);
+  padding: 14px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+nav a:hover {
+  background-color: var(--head-color);
+  color: black;
+}
+
+nav .current {
+  background-color: var(--head-color);
+  color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+article {
+    width: 40%;
+    margin: 50px 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px rgba(0,0,0,3)
+}
+
+article h1 {
+  margin-bottom: 10px;
+  color: var(--head-color);
+}
+
+article .para {
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 28px;
+  height: 90px;
+  overflow: hidden; 
+}
+
+article .more{
+  color: var(--text-color);
+  display: none;
+}
+
+.link {
+  color: var(--text-color);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.readMore {
+  float: right;
+  border: 0;
+  background: #2a3947;
+  color: var(--text-color);
+  padding: 12px 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.readMore:hover {
+  background:rgba(0, 0, 0);
+}
+
+@media screen and (max-width: 800px) {
+  article, nav {   
+    flex-direction: column;
+    width: auto;
+  }
+
+  .text {   
+    flex-direction: column;
+    width: 100%;
+  }
+  .section{
+    margin-bottom: 30px;
+  }
+
+}
