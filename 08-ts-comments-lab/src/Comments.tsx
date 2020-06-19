@@ -25,7 +25,7 @@ class Comments extends React.Component<{}, CommentsState> {
       <div className="App">
         <header className="App-header">
           <CommentsCreate onCreateComment={this.handleCommentCreate}/>
-          <CommentsList comments={this.state.comments}/>
+          <CommentsList comments={this.state.comments} onDeleteComment={this.handleDelete} onUpdateComment={this.handleUpdate}/>
         </header>
       </div>
     );
@@ -35,6 +35,16 @@ class Comments extends React.Component<{}, CommentsState> {
     this.setState(({comments}) => ({
       comments: this.state.comments.concat(comment)
     }));
+  }
+
+  handleDelete = (comment: Comment) => {
+    this.setState(({comments}) => ({
+      comments: this.state.comments.filter(item => item !== comment)
+    }));
+  }
+
+  handleUpdate =(comment: Comment) => {
+    console.log(comment)
   }
 
 }

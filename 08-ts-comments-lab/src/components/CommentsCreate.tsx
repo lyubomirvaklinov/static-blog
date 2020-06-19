@@ -7,8 +7,6 @@ export interface IAppProps {
 }
 
 interface State {
-  // author: string,
-  // text: string
   [key: string]: string
 }
 
@@ -17,6 +15,20 @@ export default class CommentsCreate extends React.Component<IAppProps, State> {
   state={
     author: '',
     text: ''
+  }
+
+
+
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    this.props.onCreateComment(new Comment(this.state.author, this.state.text))
+    this.setState({author:'', text:''})
+  }
+
+  handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   public render() {
@@ -31,16 +43,4 @@ export default class CommentsCreate extends React.Component<IAppProps, State> {
     );
   }
 
-
-  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    this.props.onCreateComment(new Comment(this.state.author, this.state.text))
-    this.setState({author:'', text:''})
-  }
-
-  handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
 }

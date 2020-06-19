@@ -1,16 +1,25 @@
 import React, { ReactElement } from 'react';
 import {Comment} from '../model/comments-model';
 import CommentItem from './CommentItem';
+import { CommentsListener } from '../Comments';
 
 
 interface Props {
-  comments: Comment[]
+  comments: Comment[];
+  onDeleteComment: CommentsListener;
+  onUpdateComment: CommentsListener;
 }
 
-export default function CommentsList({comments}: Props): ReactElement {
+
+export default function CommentsList({comments, onDeleteComment, onUpdateComment}: Props): ReactElement {
+
+
   return (
     <div>
-      {comments.map(cm => (<CommentItem key={cm.id} author={cm.author} text={cm.text} />))}
+        <div>
+          {comments.map(cm => (<CommentItem key={cm.id} comment={cm} onDeleteComment={onDeleteComment} onUpdateComment={onUpdateComment}  />))}
+        </div>
+  
     </div>
   )
 }
